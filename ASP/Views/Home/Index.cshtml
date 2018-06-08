@@ -1,0 +1,203 @@
+﻿@using ASP.Models
+@model ASP.Models.HomeModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<tr>
+    <!-- HOT NEW -->
+    <td style="width: 416px;vertical-align: top;">
+        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+            @foreach (var tt1 in Model.tintuc1s)
+            {
+                <tr>
+                    <td colspan="2">
+                        <table width="100%" border="0" cellpadding="0" cellspacing="0" style="display: block">
+                            <tr>
+                                <td>
+
+
+
+                                    <a class="MagicZoomPlus" href="@Html.Raw(tt1.Picture)">
+                                        <img style="border: 1px solid; border-color: #65a2a3;" src="@Html.Raw(tt1.Picture)"
+                                             width="416px" height="282px" />
+                                    </a>
+
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="padding-top: 6px; padding-left: 12px; padding-right: 12px; text-align: justify;">
+
+                        <h1>@Html.Raw(tt1.TieuDe)</h1>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="padding: 12px; text-align: justify;">
+                        <p style="text-align: justify;"><span style="font-family: Verdana, sans-serif; font-size: 10pt;">@Html.Raw(tt1.TomTat)</span></p>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<a href="/../../Home/Chitiettintuc/@tt1.Id"
+                                                   class="hreffont11">Chi tiết</a><font style="color: #DE0303; font: 12px Tahoma;">»</font>
+                    </td>
+                </tr>
+            }
+            <!-- 5 tin mới -->
+
+
+
+
+
+
+            @foreach (var tt5s in Model.tintuc5s)
+            {
+
+
+
+                <tr>
+                    <td width="18px" valign="top" style="padding-top: 4px; padding-left: 12px; padding-right: 5px;">
+                        <img src="~/Content/images/dot.gif" />
+                    </td>
+                    <td valign="top" style="text-align: justify; padding-right: 12px">
+                        <div class="tool6tip6">
+                            <a class="news-other-title" href="../../Home/Chitiettintuc/@tt5s.Id">
+                                @Html.Raw(tt5s.TieuDe)
+                            </a>
+                            <span class="tool6tip6text">
+                                <div style="padding: 20px; border-radius: 25px; border: 2px solid #73AD21;">
+                                    <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                        <tr>
+                                            <td style="text-align: justify;">
+                                                <a href="../../Home/Chitiettintuc/@tt5s.Id"
+                                                   class="news-title-detail">
+                                                    @Html.Raw(tt5s.TieuDe)
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td height="10"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="summary" valign="top" id="Td2" style="text-align: justify;">
+                                                <table cellpadding="0" align="left" cellspacing="0" border="0" style="display: block">
+                                                    <tr>
+                                                        <td align="center" height="20" class="news-title-detail" style="padding-right: 5px;">
+                                                            <img class="imgMedia" src="@Html.Raw(tt5s.Picture)" border="0" width="120">
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                                <p style="text-align: justify;"><i style="font-size: 12px;"><span lang="EN-US" style="font-size:10.0pt;line-height:115%;font-family:&quot;Verdana&quot;,&quot;sans-serif&quot;;&#10;mso-fareast-font-family:Calibri;mso-bidi-font-family:&quot;Times New Roman&quot;;&#10;mso-bidi-theme-font:major-latin;mso-ansi-language:EN-US;mso-fareast-language:&#10;EN-US;mso-bidi-language:AR-SA">@Html.Raw(tt5s.NoiDung)</span></i></p>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td height="8px" style="line-height: 8px;" colspan="2"></td>
+                </tr>
+
+
+                <tr>
+                    <td colspan="2" style="padding-top: 3px;" align="right">
+                        <a href="../../Home/Chitiettintuc/@tt5s.Id" class="continue">Xem tiếp</a>
+                        <font style="color: #DE0303; font: bold 12px Tahoma;">»</font>
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </td>
+    <!--
+    <td style="width: 1px;">
+    </td>
+    -->
+    <!-- <<< Tin mới -->
+    <td style="width: 352px; vertical-align: top; padding-right:0px;">
+        <table cellpadding="0" border="0" width="100%">
+            <tr>
+                <td class="hotnews-top" align="center">
+                    <table cellpadding="0" cellspacing="0" border="0" width="80%">
+                        <tr>
+                            <td class="hotnew-title" align="center">
+                                Tin mới
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <!-- 10 tin mới -->
+            @foreach (var tt10 in Model.tintucs)
+            {
+                <tr>
+                    <td class="hotnews-middle" align="center" style="padding-right: 5px;">
+                        <table cellpadding="0" cellspacing="0" border="0" width="95%">
+                            <tr>
+                                <td width="10px" valign="top" style="padding-left: 4px;padding-top: 6px;">
+                                    <img src="~/Content/images/go-home.png" height="15" width="15"/>
+                                </td>
+                                <td valign="top" style="text-align: justify; padding-right: 4px;padding-left: 4px">
+                                    <div class="tool6tip6">
+                                        <a href="../../Home/Chitiettintuc/@tt10.Id"
+                                           class="news-other-title-right">
+                                            @Html.Raw(tt10.TieuDe)
+                                        </a><span class="tool6tip6text">
+                                            <div style="padding: 20px; border-radius: 25px; border: 2px solid #73AD21;">
+                                                <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                                    <tr>
+                                                        <td style="text-align: justify;">
+                                                            <a href="/Admin/Home/Chitiettintuc/@tt10.Id"
+                                                               class="news-title-detail">
+                                                                @Html.Raw(tt10.TieuDe)
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td height="10"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="summary" valign="top" id="summary" style="text-align: justify;">
+                                                            <table cellpadding="0" align="left" cellspacing="0" border="0" style="display: block">
+                                                                <tr>
+                                                                    <td align="center" height="20" class="news-title-detail" style="padding-right: 5px;">
+                                                                        <img class="imgMedia" src="@Html.Raw(tt10.Picture)" border="0" width="120">
+                                                                    </td>
+                                                                </tr>
+                                                            </table>
+                                                            <p style="text-align: justify;"><span style="font-family: Verdana, sans-serif; font-size: 10pt;">@Html.Raw(tt10.NoiDung)</span>&nbsp;</p>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td height="8px" style="line-height: 8px;" colspan="2"></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            }
+
+
+            <tr>
+                <td class="hotnews-bottom"></td>
+            </tr>
+
+        </table>
+    </td>
+    <!--
+    <td style="width: 12px;">
+    </td>
+    -->
+    <!-- Tin mới >>> -->
+</tr>
+
+
+

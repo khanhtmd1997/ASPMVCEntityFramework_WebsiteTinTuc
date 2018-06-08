@@ -1,0 +1,40 @@
+﻿@model IEnumerable<ASP.Models.DanhMuc>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/LayoutQL.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TenDanhMuc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MoTaDanhMuc)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TenDanhMuc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MoTaDanhMuc)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.DanhMucId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.DanhMucId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.DanhMucId })
+        </td>
+    </tr>
+}
+
+</table>

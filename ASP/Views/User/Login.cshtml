@@ -1,0 +1,134 @@
+﻿@model ASP.Models.Registration
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Đăng Nhập</title>
+</head>
+<body>
+    <div class="full">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <div class="form-horizontal">
+                
+                <form>
+                    <h1 style="color:red;">Đăng nhập</h1>
+                    <hr />
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Username, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Username, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Username, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-12">
+                            @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                </form>
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+                @*<div class="form-group">
+                    @Html.LabelFor(model => model.Username, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Username, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Username, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                    </div>
+                </div>*@
+
+
+
+                <div>
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Create" class="btn btn-default" />
+                    </div>
+                </div>
+            </div>
+        }
+
+        </div>
+</body>
+<
+</html>
+<style>
+    
+    form {
+        box-sizing: border-box;
+        width: 300px;
+        height: 100%;
+        margin: 100px auto 0;
+        box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.2);
+        padding-bottom: 40px;
+        border-radius: 3px;
+        background-color: lightcyan;
+    }
+        form h1 {
+            box-sizing: border-box;
+            padding: 20px;
+            text-align:center;
+        }
+    .form-group {
+        margin: 40px 25px;
+        width: 170px;
+        display: block;
+        border: none;
+        padding: 10px 0;
+        border-bottom: solid 1px #1abc9c;
+        transition: all 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
+        background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 96%, #1abc9c 4%);
+        background-position: -200px 0;
+        background-size: 200px 100%;
+        background-repeat: no-repeat;
+        color: blueviolet;
+    }
+  
+        .form-group:focus, input:valid {
+            box-shadow: none;
+            outline: none;
+            background-position: 0 0;
+        }
+
+            .form-group:focus::-webkit-input-placeholder, input:valid::-webkit-input-placeholder {
+                color: #1abc9c;
+                font-size: 11px;
+                transform: translateY(-20px);
+                visibility: visible !important;
+            }
+    .btn-default {
+        border: none;
+        background: #1abc9c;
+        cursor: pointer;
+        border-radius: 3px;
+        padding: 6px;
+        width: 200px;
+        color: white;
+        margin-left: 25px;
+        box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2);
+    }
+
+        .btn-default :hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 6px 0 rgba(0, 0, 0, 0.2);
+        }
+</style>
